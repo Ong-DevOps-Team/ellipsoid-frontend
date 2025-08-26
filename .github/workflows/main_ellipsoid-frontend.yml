@@ -44,7 +44,8 @@ jobs:
         with:
           app-name: 'ellipsoid-frontend'
           slot-name: 'Production'
-          package: ./build 
+          package: .
+
 
 
 
