@@ -31,6 +31,8 @@ jobs:
     needs: build
     
     steps:
+      - uses: actions/checkout@v4
+    
       - name: Azure Login
         uses: azure/login@v2
         with:
@@ -45,6 +47,7 @@ jobs:
           app-name: 'ellipsoid-frontend'
           slot-name: 'Production'
           package: .
+
 
 
 
