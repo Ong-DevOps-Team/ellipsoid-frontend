@@ -9,6 +9,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env: 
+      REACT_APP_API_URL: https://ellipsoid-no-docker.azurewebsites.net
     permissions:
       id-token: write
       contents: read
@@ -50,6 +52,7 @@ jobs:
           app-name: 'ellipsoid-frontend'
           slot-name: 'Production'
           package: .
+
 
 
 
