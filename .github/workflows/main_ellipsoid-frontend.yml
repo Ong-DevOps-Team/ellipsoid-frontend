@@ -25,10 +25,21 @@ jobs:
         run: |
           echo "REACT_APP_API_URL=${{ secrets.REACT_APP_API_URL }}" >> $GITHUB_ENV
 
-      - name: npm install, build, and test
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build app
+        run: npm run build
+
+      - name: Verify API URL in build
         run: |
-          npm install
-          npm run build
+          echo "Checking build for localhost..."
+          if grep -R "localhost" build/; then
+            echo "❌ ERROR: 'localhost' found in build output. Environment variable not applied."
+            exit 1
+          else
+            echo "✅ No localhost found. Build looks correct."
+          fi
 
   deploy:
     runs-on: ubuntu-latest
@@ -54,6 +65,7 @@ jobs:
           app-name: 'ellipsoid-frontend'
           slot-name: 'Production'
           package: .
+
 
 
 
