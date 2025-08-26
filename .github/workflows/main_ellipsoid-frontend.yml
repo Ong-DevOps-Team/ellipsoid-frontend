@@ -1,3 +1,4 @@
+#Test
 name: Build and deploy Node.js app to Azure Web App - ellipsoid-frontend
 
 on:
@@ -55,6 +56,7 @@ jobs:
           app-name: 'ellipsoid-frontend'
           slot-name: 'Production'
           package: .
+
 
 
 
